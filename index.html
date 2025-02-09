@@ -8,164 +8,155 @@
     </div>
 <head>
     <style>
-        body{
+        body {
             background-color: #333;
         }
         .logo {
-    display: block;
-    margin: 20px auto; /* توسيط الشعار */
-    width: 280px; /* حجم الشعار */
-    height: auto;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5)); /* إضافة ظل */
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
+            display: block;
+            margin: 20px auto; /* توسيط الشعار */
+            width: 280px; /* حجم الشعار */
+            height: auto;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5)); /* إضافة ظل */
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
 
-.logo:hover {
-    transform: scale(1.1); /* تكبير بسيط عند التحويم */
-    filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.3)); /* توهج خفيف عند التحويم */
-}
+        .logo:hover {
+            transform: scale(1.1); /* تكبير بسيط عند التحويم */
+            filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.3)); /* توهج خفيف عند التحويم */
+        }
 
+        .header {
+            position: absolute;
+            left: 18%;
+            top: 45%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1); 
+            padding: 30px;
+            border-radius: 15px; 
+            color: #fff;
+            text-align: left; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            z-index: 10; 
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 0.5px; 
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
 
-.header {
-    position: absolute;
-    left: 18%;
-    top: 45%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1); 
-    padding: 30px;
-    border-radius: 15px; 
-    color: #fff;
-    text-align: left; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    z-index: 10; 
-    font-family: 'Arial', sans-serif; /* خط بسيط واحترافي */
-    letter-spacing: 0.5px; /* تباعد خفيف بين الحروف */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* إضافة تأثير الظل على النص */
+        .header h1 {
+            font-size: 30px; 
+            margin-bottom: 15px; 
+            font-weight: 600; 
+        }
 
-}
+        .header p {
+            font-size: 22px; 
+            font-weight: 700; 
+            color: #ffd700; 
+            line-height: 1.5; 
+        }
 
-.header h1 {
-    font-size: 30px; /* زيادة حجم الخط لجعل العنوان أكثر بروزًا */
-    margin-bottom: 15px; /* زيادة المسافة بين العنوان والفقرات */
-    font-weight: 600; /* جعل الخط أكثر سمكًا */
-}
-
-.header p {
-    font-size: 22px; /* زيادة حجم النص */
-    font-weight: 700; /* جعل الخط أكثر سمكًا */
-    color: #ffd700; 
-    line-height: 1.5; /* زيادة المسافة بين الأسطر */
-}
-
-.header:hover {
-    transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
-}
-
-
-
+        .header:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+        }
 
         .wheel {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    border-radius: 50%;
-    padding: 15px;
-    background: linear-gradient(145deg, #292929, #4f4f4f); /* تعديل التدرج اللوني لزيادة التباين */
-    box-shadow: inset 5px 5px 20px rgba(0, 0, 0, 0.7),  /* تعزيز الظلال الداخلية لتوفير عمق أكبر */
-                inset -5px -5px 20px rgba(255, 255, 255, 0.4), 
-                0 12px 40px rgba(0, 0, 0, 0.6); /* تحسين الظلال الخارجية لتعزيز التأثير ثلاثي الأبعاد */
-    border: 6px solid #777; /* استخدام لون أفتح للحدود لزيادة التباين مع التدرج */
-    z-index: 0;
-}
+            display: flex;
+            justify-content: center;
+            position: relative;
+            border-radius: 50%;
+            padding: 15px;
+            background: linear-gradient(145deg, #292929, #4f4f4f); 
+            box-shadow: inset 5px 5px 20px rgba(0, 0, 0, 0.7), 
+                        inset -5px -5px 20px rgba(255, 255, 255, 0.4), 
+                        0 12px 40px rgba(0, 0, 0, 0.6);
+            border: 6px solid #777; 
+            z-index: 0;
+        }
 
+        canvas {
+            border-radius: 50%;
+            border: 4px solid #777;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 80%);
+        }
 
-
-canvas {
-    border-radius: 50%;
-    border: 4px solid #777;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 80%);
-}
-.triangle img {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 45.8%;
-    left: 60.4%;
-    transform: translate(-50%, -50%) rotate(270deg);
-    z-index: 3;
-    
-    /* تحسين الظلال */
-    box-shadow: 
-        0 8px 20px rgba(0, 0, 0,0.5),    /* ظلال خارجية قوية */
-        0 0 25px rgba(255, 255, 255, 0.3), /* توهج ناعم من الخارج */
-        inset 0 4px 6px rgba(0, 0, 0, 0.2); /* ظل داخلي لإعطاء العمق */
-
-    clip-path: circle(35%);
-    border: 2px solid rgba(255, 255, 255, 0.6); /* إضافة حدود ناعمة لزيادة الوضوح */
-    
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات حركة ناعمة */
-}
+        .triangle img {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 45.8%;
+            left: 60.4%;
+            transform: translate(-50%, -50%) rotate(270deg);
+            z-index: 3;
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0,0.5),
+                0 0 25px rgba(255, 255, 255, 0.3), 
+                inset 0 4px 6px rgba(0, 0, 0, 0.2);
+            clip-path: circle(35%);
+            border: 2px solid rgba(255, 255, 255, 0.6); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
         .inputArea {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    flex-direction: column;
-    align-items: flex-end; /* ينقل المحتوى إلى اليمين */
-    width: 100%;
-    padding-right: 20px;
-    transform: translate(-350px, -490px);
-}
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            flex-direction: column;
+            align-items: flex-end; 
+            width: 100%;
+            padding-right: 20px;
+            transform: translate(-350px, -490px);
+        }
 
-textarea {
-    background-color: rgba(230, 228, 228, 0.1); /* لون شفاف ناعم */
-    caret-color: #ffcc00; /* لون مؤشر الكتابة */
-    resize: none;
-    color: #fff;
-    font-size: 16px;
-    padding: 12px;
-    border-radius: 8px; /* زوايا دائرية */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* حدود شفافة */
-    width: 280px; /* عرض مناسب */
-    height: 250px; /* ارتفاع مناسب */
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-}
+        textarea {
+            background-color: rgba(230, 228, 228, 0.1); 
+            caret-color: #ffcc00;
+            resize: none;
+            color: #fff;
+            font-size: 16px;
+            padding: 12px;
+            border-radius: 8px; 
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+            width: 280px; 
+            height: 250px; 
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
 
-textarea:focus {
-    border-color: #ffcc00; /* لون أصفر عند التفاعل */
-    box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
-    outline: none;
-}
+        textarea:focus {
+            border-color: #ffcc00; 
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+            outline: none;
+        }
 
+        .spinButton {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #ffcc00; 
+            color: #333;
+            border: none;
+            border-radius: 8px; 
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
+        }
 
-.spinButton {
-    margin-top: 20px;
-    padding: 12px 25px;
-    background-color: #ffcc00; /* لون أصفر جذاب */
-    color: #333;
-    border: none;
-    border-radius: 8px; /* زوايا دائرية */
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
-}
+        .spinButton:hover {
+            background-color: #ffaa00;
+            box-shadow: 0 6px 15px rgba(255, 170, 0, 0.5);
+            transform: scale(1.05); 
+        }
 
-.spinButton:hover {
-    background-color: #ffaa00; /* لون أغمق عند المرور */
-    box-shadow: 0 6px 15px rgba(255, 170, 0, 0.5);
-    transform: scale(1.05); /* تكبير بسيط عند المرور */
-}
+        .spinButton:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease;
+        }
 
-.spinButton:active {
-    transform: scale(0.95);
-    transition: transform 0.1s ease; /* إضافة حركة عند الضغط على الزر */}
- /* Responsive Design */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .header {
                 left: 10%;
@@ -218,7 +209,6 @@ textarea:focus {
                 height: 60px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -227,20 +217,19 @@ textarea:focus {
         <p id="winner">NONE</p>
     </div>
     <div class="wheel">
-        <canvas class="" id="canvas" width="500" height="500"></canvas>
+        <canvas id="canvas" width="500" height="500"></canvas>
     </div>
     <div class="inputArea">
-        <textarea rows="20" cols="30" oninput="createWheel()">
-</textarea>
+        <textarea rows="20" cols="30" oninput="createWheel()"></textarea>
         <button class="spinButton" onclick="spin()">Spin</button>
     </div>
 
     <script>
-        let isPageLoaded = false; // متغير لتتبع حالة تحميل الصفحة
+        let isPageLoaded = false; 
         window.onload = function() {
-    createWheel(); // تأكد من أنك تقوم بتحديث العجلة فقط بعد تحميل الصفحة
-    draw(); // رسم العجلة مرة واحدة عند التحميل
-};
+            createWheel();
+            draw();
+        };
 
         function randomColor(){
             r = Math.floor(Math.random() * 255);
@@ -286,7 +275,6 @@ textarea:focus {
         }
 
         function createWheel(){
-            // تحديث العناصر عند إدخال النص
             items = document.getElementsByTagName("textarea")[0].value.split("\n");
             step = 360 / items.length;
             colors = [];
@@ -297,17 +285,16 @@ textarea:focus {
         }
 
         function draw(){
-            ctx.clearRect(0, 0, width, height); // مسح العجلة الحالية
+            ctx.clearRect(0, 0, width, height);
             ctx.beginPath();
             ctx.arc(centerX, centerY, radius, toRad(0), toRad(360));
-            ctx.fillStyle = `rgb(${33}, ${33}, ${33})`;
+            ctx.fillStyle = `rgb(33, 33, 33)`;
             ctx.lineTo(centerX, centerY);
             ctx.fill();
 
             let startDeg = currentDeg;
             for(let i = 0; i < items.length; i++, startDeg += step){
                 let endDeg = startDeg + step;
-
                 color = colors[i];
                 let colorStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
 
@@ -318,86 +305,45 @@ textarea:focus {
                 ctx.fillStyle = colorStyle2;
                 ctx.lineTo(centerX, centerY);
                 ctx.fill();
-
-                ctx.beginPath();
-                rad = toRad(360 / step);
-                ctx.arc(centerX, centerY, radius - 30, toRad(startDeg), toRad(endDeg));
                 ctx.fillStyle = colorStyle;
-                ctx.lineTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius - 40, toRad(startDeg), toRad(endDeg));
                 ctx.fill();
 
-                // رسم النص داخل الشريحة
-                ctx.save();
-                ctx.translate(centerX, centerY);
-                ctx.rotate(toRad((startDeg + endDeg) / 2));
-                ctx.textAlign = "center";
-                if(color.r > 150 || color.g > 150 || color.b > 150){
-                    ctx.fillStyle = "#000";
-                } else {
-                    ctx.fillStyle = "#fff";
-                }
-                ctx.font = 'bold 24px serif';
-                ctx.fillText(items[i], 130, 10);
-                ctx.restore();
-
-                itemDegs[items[i]] = {
-                    "startDeg": startDeg,
-                    "endDeg" : endDeg
-                };
-
-                // التحقق من الفائز
-                if(startDeg % 360 < 360 && startDeg % 360 > 270 && endDeg % 360 > 0 && endDeg % 360 < 90){
-                    document.getElementById("winner").innerHTML = items[i];
-                }
+                itemDegs[startDeg] = items[i];
             }
-        }
-
-        let speed = 0;
-        let maxRotation = randomRange(360 * 3, 360 * 6);
-        let pause = false;
-        function animate(){
-            if(pause){
-                return;
-            }
-            speed = easeOutSine(getPercent(currentDeg, maxRotation, 0)) * 20;
-            if(speed < 0.01){
-                speed = 0;
-                pause = true;
-            }
-            currentDeg += speed;
-            draw();
-            window.requestAnimationFrame(animate);
         }
 
         function spin() {
-    if (speed != 0) {
-        return;
-    }
+            currentDeg = randomRange(1000, 100000) + randomDeg;
+            winnerDeg = currentDeg + randomRange(10, 360);
+            winnerDeg = winnerDeg % 360;
+            winnerItem = itemDegs[Math.floor(winnerDeg)];
+            console.log(winnerItem);
 
-    maxRotation = randomRange(360 * 6, 360 * 9); // تعيين عدد الدورات
-    currentDeg = 0;
-    createWheel(); // تحديث العناصر
-    draw(); // إعادة رسم العجلة
+            document.getElementById("winner").innerHTML = winnerItem;
+            rotateWheel();
+        }
 
-    itemDegs = {};
-    pause = false;
-    window.requestAnimationFrame(animate); // بدء التحريك بشكل سلس
-}
-function animate() {
-    if (pause) {
-        return;
-    }
-    speed = easeOutSine(getPercent(currentDeg, maxRotation, 0)) * 20;
-    if (speed < 0.01) {
-        speed = 0;
-        pause = true;
-    }
-    currentDeg += speed;
-    draw(); // إعادة الرسم في كل مرة
-    window.requestAnimationFrame(animate);
-}
+        function rotateWheel() {
+            let duration = 3;
+            let startDeg = currentDeg;
+            let easeFunc = easeOutSine;
 
+            let startTime = Date.now();
+            function loop() {
+                let time = Date.now();
+                let timeProgress = (time - startTime) / (duration * 1000);
 
+                if (timeProgress < 1) {
+                    currentDeg = startDeg + (easeFunc(timeProgress) * (currentDeg - startDeg));
+                    draw();
+                    requestAnimationFrame(loop);
+                } else {
+                    draw();
+                }
+            }
+            requestAnimationFrame(loop);
+        }
     </script>
 </body>
 </html>
