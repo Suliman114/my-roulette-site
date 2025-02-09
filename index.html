@@ -14,49 +14,50 @@
             padding: 0;
             font-family: 'Arial', sans-serif;
         }
+
         .logo {
             display: block;
-            margin: 20px auto; /* توسيط الشعار */
-            width: 280px; /* حجم الشعار */
+            margin: 20px auto;
+            width: 280px;
             height: auto;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5)); /* إضافة ظل */
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
             transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
         }
 
         .logo:hover {
-            transform: scale(1.1); /* تكبير بسيط عند التحويم */
-            filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.3)); /* توهج خفيف عند التحويم */
+            transform: scale(1.1);
+            filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.3));
         }
 
         .header {
             position: absolute;
-            left: 18%;
-            top: 45%;
+            left: 10%;
+            top: 40%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.1); 
+            background: rgba(255, 255, 255, 0.1);
             padding: 30px;
-            border-radius: 15px; 
+            border-radius: 15px;
             color: #fff;
-            text-align: left; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            z-index: 10; 
+            z-index: 10;
             font-family: 'Arial', sans-serif;
-            letter-spacing: 0.5px; 
+            letter-spacing: 0.5px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
         .header h1 {
-            font-size: 30px; 
-            margin-bottom: 15px; 
-            font-weight: 600; 
+            font-size: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .header p {
-            font-size: 22px; 
-            font-weight: 700; 
-            color: #ffd700; 
-            line-height: 1.5; 
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffd700;
+            line-height: 1.5;
         }
 
         .header:hover {
@@ -70,11 +71,11 @@
             position: relative;
             border-radius: 50%;
             padding: 15px;
-            background: linear-gradient(145deg, #292929, #4f4f4f); 
-            box-shadow: inset 5px 5px 20px rgba(0, 0, 0, 0.7), 
-                        inset -5px -5px 20px rgba(255, 255, 255, 0.4), 
+            background: linear-gradient(145deg, #292929, #4f4f4f);
+            box-shadow: inset 5px 5px 20px rgba(0, 0, 0, 0.7),
+                        inset -5px -5px 20px rgba(255, 255, 255, 0.4),
                         0 12px 40px rgba(0, 0, 0, 0.6);
-            border: 6px solid #777; 
+            border: 6px solid #777;
             z-index: 0;
         }
 
@@ -89,45 +90,49 @@
             width: 100px;
             height: 100px;
             position: absolute;
-            top: 45.8%;
-            left: 60.4%;
+            top: 45%;
+            left: 60%;
             transform: translate(-50%, -50%) rotate(270deg);
             z-index: 3;
-            box-shadow: 
-                0 8px 20px rgba(0, 0, 0,0.5),
-                0 0 25px rgba(255, 255, 255, 0.3), 
-                inset 0 4px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5),
+                        0 0 25px rgba(255, 255, 255, 0.3),
+                        inset 0 4px 6px rgba(0, 0, 0, 0.2);
             clip-path: circle(35%);
-            border: 2px solid rgba(255, 255, 255, 0.6); 
+            border: 2px solid rgba(255, 255, 255, 0.6);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .inputArea {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             margin-top: 40px;
             width: 100%;
+            margin-left: 20px;
+        }
+
+        .inputArea, .winner {
+            margin-right: 20px;
         }
 
         textarea {
-            background-color: rgba(230, 228, 228, 0.1); 
+            background-color: rgba(230, 228, 228, 0.1);
             caret-color: #ffcc00;
             resize: none;
             color: #fff;
             font-size: 16px;
             padding: 12px;
-            border-radius: 8px; 
-            border: 1px solid rgba(255, 255, 255, 0.3); 
-            width: 280px; 
-            height: 250px; 
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 280px;
+            height: 250px;
             transition: all 0.3s ease-in-out;
             box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
         }
 
         textarea:focus {
-            border-color: #ffcc00; 
+            border-color: #ffcc00;
             box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
             outline: none;
         }
@@ -135,10 +140,10 @@
         .spinButton {
             margin-top: 20px;
             padding: 12px 25px;
-            background-color: #ffcc00; 
+            background-color: #ffcc00;
             color: #333;
             border: none;
-            border-radius: 8px; 
+            border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
@@ -149,7 +154,7 @@
         .spinButton:hover {
             background-color: #ffaa00;
             box-shadow: 0 6px 15px rgba(255, 170, 0, 0.5);
-            transform: scale(1.05); 
+            transform: scale(1.05);
         }
 
         .spinButton:active {
@@ -170,7 +175,8 @@
             }
 
             .inputArea {
-                transform: translate(0, -300px);
+                margin-top: 10px;
+                transform: translate(0, -100px);
             }
 
             textarea {
@@ -214,6 +220,7 @@
                 padding: 5px;
             }
         }
+
     </style>
 </head>
 <body>
@@ -230,24 +237,24 @@
     </div>
 
     <script>
-        let isPageLoaded = false; 
+        let isPageLoaded = false;
         window.onload = function() {
             createWheel();
             draw();
         };
 
-        function randomColor(){
+        function randomColor() {
             r = Math.floor(Math.random() * 255);
             g = Math.floor(Math.random() * 255);
             b = Math.floor(Math.random() * 255);
             return {r, g, b};
         }
 
-        function toRad(deg){
+        function toRad(deg) {
             return deg * (Math.PI / 180.0);
         }
 
-        function randomRange(min, max){
+        function randomRange(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
@@ -255,8 +262,8 @@
             return Math.sin((x * Math.PI) / 2);
         }
 
-        function getPercent(input, min, max){
-            return (((input - min) * 100) / (max - min))/100;
+        function getPercent(input, min, max) {
+            return (((input - min) * 100) / (max - min)) / 100;
         }
 
         const canvas = document.getElementById("canvas");
@@ -275,21 +282,21 @@
         let colors = [];
         let itemDegs = {};
 
-        for(let i = 0; i < items.length + 1; i++){
+        for (let i = 0; i < items.length + 1; i++) {
             colors.push(randomColor());
         }
 
-        function createWheel(){
+        function createWheel() {
             items = document.getElementsByTagName("textarea")[0].value.split("\n");
             step = 360 / items.length;
             colors = [];
-            for(let i = 0; i < items.length + 1; i++){
+            for (let i = 0; i < items.length + 1; i++) {
                 colors.push(randomColor());
             }
             draw();
         }
 
-        function draw(){
+        function draw() {
             ctx.clearRect(0, 0, width, height);
             ctx.beginPath();
             ctx.arc(centerX, centerY, radius, toRad(0), toRad(360));
@@ -298,13 +305,12 @@
             ctx.fill();
 
             let startDeg = currentDeg;
-            for(let i = 0; i < items.length; i++, startDeg += step){
+            for (let i = 0; i < items.length; i++, startDeg += step) {
                 let endDeg = startDeg + step;
-                color = colors[i];
+                let color = colors[i];
                 let colorStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
 
                 ctx.beginPath();
-                rad = toRad(360 / step);
                 ctx.arc(centerX, centerY, radius - 2, toRad(startDeg), toRad(endDeg));
                 let colorStyle2 = `rgb(${color.r - 30}, ${color.g - 30}, ${color.b - 30})`;
                 ctx.fillStyle = colorStyle2;
