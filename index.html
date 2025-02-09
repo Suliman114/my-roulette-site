@@ -14,16 +14,16 @@
 
         .logo {
             display: block;
-            margin: 20px auto; /* توسيط الشعار */
-            width: 280px; /* حجم الشعار */
+            margin: 20px auto;
+            width: 280px;
             height: auto;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5)); /* إضافة ظل */
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
             transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
         }
 
         .logo:hover {
-            transform: scale(1.1); /* تكبير بسيط عند التحويم */
-            filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.3)); /* توهج خفيف عند التحويم */
+            transform: scale(1.1);
+            filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.3));
         }
 
         .header {
@@ -92,7 +92,7 @@
             justify-content: center;
             margin-top: 40px;
             flex-direction: column;
-            align-items: center; /* تصحيح المحاذاة في الجوال */
+            align-items: center;
             width: 100%;
         }
 
@@ -142,7 +142,7 @@
             transition: transform 0.1s ease;
         }
 
-        /* Media Queries for smaller screens */
+        /* Media Queries for different aspect ratios */
         @media (max-width: 768px) {
             .header {
                 width: 80%;
@@ -183,6 +183,98 @@
             .spinButton {
                 width: 100%;
                 padding: 10px;
+            }
+        }
+
+        /* Custom Media Queries for specific aspect ratios */
+        @media (aspect-ratio: 9/16) {
+            .header {
+                padding: 20px;
+                font-size: 18px;
+            }
+
+            .spinButton {
+                width: 90%;
+                padding: 10px;
+            }
+        }
+
+        @media (aspect-ratio: 4/3) {
+            .header {
+                padding: 25px;
+            }
+
+            .wheel {
+                width: 85%;
+            }
+        }
+
+        @media (aspect-ratio: 2.35/1) {
+            .header {
+                padding: 30px;
+            }
+
+            .wheel {
+                width: 70%;
+            }
+        }
+
+        @media (aspect-ratio: 2/1) {
+            .header {
+                padding: 20px;
+                font-size: 22px;
+            }
+
+            .wheel {
+                width: 75%;
+            }
+        }
+
+        @media (aspect-ratio: 1.85/1) {
+            .header {
+                padding: 25px;
+            }
+
+            .wheel {
+                width: 80%;
+            }
+        }
+
+        @media (aspect-ratio: 16/9) {
+            .header {
+                padding: 30px;
+            }
+
+            .wheel {
+                width: 80%;
+            }
+        }
+
+        @media (aspect-ratio: 3/4) {
+            .header {
+                padding: 25px;
+            }
+
+            .wheel {
+                width: 85%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 200px;
+            }
+
+            .spinButton {
+                width: 100%;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .wheel {
+                padding: 5px;
+                width: 80%;
             }
         }
     </style>
