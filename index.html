@@ -38,6 +38,7 @@
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             font-family: 'Arial', sans-serif;
+            z-index: 1;
         }
 
         .header h1 {
@@ -378,37 +379,52 @@
 
                 ctx.beginPath();
                 rad = toRad(360 / step);
-                ctx.arc(centerX, centerY, radius - 30, toRad(startDeg), toRad(endDeg));
+                ctx.arc(centerX, centerY, radius - 2, toRad(startDeg), toRad(endDeg));
                 ctx.fillStyle = colorStyle;
                 ctx.lineTo(centerX, centerY);
                 ctx.fill();
 
                 ctx.save();
                 ctx.translate(centerX, centerY);
-                ctx.rotate(toRad((startDeg + endDeg) / 2));
+                ctx.rotate(toRad(startDeg + (step / 2)));
                 ctx.textAlign = "center";
-                if(color.r > 150 || color.g > 150 || color.b > 150){
-                    ctx.fillStyle = "#000";
-                } else {
-                    ctx.fillStyle = "#fff";
-                }
-                ctx.font = 'bold 24px serif';
-                ctx.fillText(items[i], 130, 10);
+                ctx.textBaseline = "middle";
+                ctx.fillStyle = "#fff";
+                ctx.font = "16px Arial";
+                ctx.fillText(items[i], 0, -radius + 20);
                 ctx.restore();
-
-                itemDegs[items[i]] = {
-                    startDeg: startDeg,
-                    endDeg: endDeg
-                }
             }
         }
 
-        function spin(){
-            let winner = items[randomRange(0, items.length - 1)];
-            document.getElementById("winner").innerText = winner;
-            let deg = randomRange(10, 1000);
-            currentDeg += deg;
+        let spinAngleStart = 10;
+        let spinTime = 0;
+        let spinTimeTotal = 0;
+        let spinAngle = 0;
+
+        function spin() {
+            spinAngleStart = randomRange(10, 20);
+            spinTime = 0;
+            spinTimeTotal = randomRange(30, 40);
+            rotateWheel();
+        }
+
+        function rotateWheel() {
+            spinTime++;
+            if(spinTime >= spinTimeTotal){
+                stopRotateWheel();
+                return;
+            }
+
+            let spinAngle = spinAngleStart - easeOutSine(getPercent(spinTime, 0, spinTimeTotal)) * spinAngleStart;
+            currentDeg += spinAngle;
             draw();
+            setTimeout('rotateWheel()', 30);
+        }
+
+        function stopRotateWheel() {
+            let degrees = currentDeg % 360;
+            let archer = Math.floor((degrees / 360) * items.length);
+            document.getElementById("winner").innerHTML = items[archer];
         }
     </script>
 </body>
