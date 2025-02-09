@@ -14,7 +14,7 @@
         .logo {
     display: block;
     margin: 20px auto; /* توسيط الشعار */
-    width: 280px; /* حجم الشعار */
+    width: 280vw; /* حجم الشعار */
     height: auto;
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5)); /* إضافة ظل */
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
@@ -27,10 +27,10 @@
 
 
 .header {
-    position: absolute;
-    left: 18%;
-    top: 45%;
-    transform: translateY(-50%);
+   position: relative;
+    left: 50%;
+   top: 20%;
+    transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.1); 
     padding: 30px;
     border-radius: 15px; 
@@ -84,6 +84,9 @@
 
 canvas {
     border-radius: 50%;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
     border: 4px solid #777;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
     background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 80%);
@@ -165,32 +168,23 @@ textarea:focus {
 .spinButton:active {
     transform: scale(0.95);
     transition: transform 0.1s ease; /* إضافة حركة عند الضغط على الزر */}
-    @media (max-width: 768px) {
-    .wheel {
+   @media (max-width: 768px) {
+    .header {
+        left: 50%;
+        top: 15%;
+        transform: translate(-50%, -50%);
         width: 90%;
+        text-align: center;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .wheel {
+        width: 80%;
         height: auto;
         padding: 10px;
-    }
-
-    canvas {
-        width: 100%;
-        height: auto;
-    }
-
-    .triangle img {
-        width: 60px;
-        height: 60px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(270deg);
-    }
-
-    .header {
-        width: 80%;
-        left: 50%;
-        top: 20%;
-        transform: translate(-50%, -50%);
-        text-align: center;
     }
 
     .inputArea {
@@ -212,7 +206,6 @@ textarea:focus {
         padding: 10px;
     }
 }
-
     </style>
 </head>
 <body>
@@ -330,7 +323,8 @@ textarea:focus {
                 } else {
                     ctx.fillStyle = "#fff";
                 }
-                ctx.font = 'bold 24px serif';
+              ctx.font = `bold ${Math.max(24, Math.min(30, width / items.length / 5))}px serif`;
+
                 ctx.fillText(items[i], 130, 10);
                 ctx.restore();
 
